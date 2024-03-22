@@ -3,6 +3,7 @@
 # Get raw file links from current GitHub repository
 # Dependencies: fzf and xclip
 # This file should be placed at the root of a repository
+# Guide (Chinese): https://cyrusyip.org/zh-cn/post/2020/12/05/host-images-on-github/
 
 username="CyrusYip"
 repo_name="blog-static"
