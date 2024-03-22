@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Get raw file links from current GitHub repository
 # Dependencies: fzf and xclip
@@ -13,14 +13,19 @@ get_url() {
   github="https://raw.githubusercontent.com/${username}/${repo_name}/${branch_name}/${path}"
   jsdelivr="https://cdn.jsdelivr.net/gh/${username}/${repo_name}/${path}"
   jsdelivr_purge="https://purge.jsdelivr.net/gh/${username}/${repo_name}/${path}"
-  echo "$github" | xclip -selection clipboard # copy all links so I can get them later
-  echo "$jsdelivr_purge" | xclip -selection clipboard 
-  echo "$jsdelivr" | xclip -selection clipboard
-  echo "Links for the file:"
+
+  # copy all links so I can get them later
+  copy_count=0
+  echo "$github" | xclip -selection clipboard && copy_count=$((copy_count + 1))
+  echo "$jsdelivr_purge" | xclip -selection clipboard && copy_count=$((copy_count + 1))
+  echo "$jsdelivr" | xclip -selection clipboard && copy_count=$((copy_count + 1))
+  [ $copy_count -eq 3 ] && echo "Links were successively copied."
+
+  echo -e "\nLinks for the file:"
   echo "  $github"
   echo "  $jsdelivr"
   echo "  $jsdelivr_purge"
-  echo -e "\nPress Ctrl-C to exit, Enter to contine..." 
+  echo -e "\nPress Ctrl-C to exit, Enter to contine..."
 }
 
 while true; do
