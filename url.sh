@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Get raw file links from current GitHub repository
 # Dependencies: fzf and xclip
