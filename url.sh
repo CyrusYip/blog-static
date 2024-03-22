@@ -12,8 +12,8 @@ branch_name="main"
 get_url() {
   path=$(fzf)
   github="https://raw.githubusercontent.com/${username}/${repo_name}/${branch_name}/${path}"
-  jsdelivr="https://cdn.jsdelivr.net/gh/${username}/${repo_name}/${path}"
-  jsdelivr_purge="https://purge.jsdelivr.net/gh/${username}/${repo_name}/${path}"
+  jsdelivr="https://cdn.jsdelivr.net/gh/${username}/${repo_name}@${branch_name}/${path}"
+  jsdelivr_purge="https://purge.jsdelivr.net/gh/${username}/${repo_name}@${branch_name}/${path}"
 
   # copy all links so I can get them later
   copy_count=0
